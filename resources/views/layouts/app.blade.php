@@ -14,7 +14,9 @@
         @livewireStyles
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+        <script src="{{asset('js/app.js')}}" defer></script>
+        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -23,7 +25,7 @@
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
-            @if (isset($header))
+            {{-- @if (isset($header))
                 <header class="bg-white shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
@@ -34,11 +36,13 @@
             <!-- Page Content -->
             <main>
                 {{ $slot }}
-            </main>
+            </main> --}}
+            @yield('dashboard')
         </div>
 
         @stack('modals')
 
         @livewireScripts
+
     </body>
 </html>
